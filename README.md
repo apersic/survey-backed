@@ -12,7 +12,7 @@ Simple node.js server that fetches survey questions and submits survey answers. 
 Fetches survey information
 
 Status codes:
-- 200.
+- 200
 - 500
 
 ### submitAnswers
