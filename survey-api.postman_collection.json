@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "9c12667a-0dfa-4262-9f70-a338df197c57",
+		"name": "survey-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetQuestions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/survey",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"survey"
+					]
+				},
+				"description": "GetQuestions"
+			},
+			"response": []
+		},
+		{
+			"name": "PostAnswers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\": {\n        \"type\": \"surveyAnswers\",\n        \"id\": \"9c7160a4-e9ad-499e-92f6-07d7cdb0382c\",\n        \"attributes\": {\n            \"answers\": [\n                {\n                    \"questionId\": \"film\",\n                    \"answer\": \"Rocky Horror Picture Show\"\n                },\n                {\n                    \"questionId\": \"review\",\n                    \"answer\": 5\n                }\n            ]\n        },\n        \"relationships\": {\n            \"survey\": {\n                \"data\": {\n                    \"type\": \"surveys\",\n                    \"id\": \"2660dd24-e2db-42c1-8093-284b1df2664c\"\n                }\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/survey/9c7160a4-e9ad-499e-92f6-07d7cdb0382c/answers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"survey",
+						"9c7160a4-e9ad-499e-92f6-07d7cdb0382c",
+						"answers"
+					]
+				},
+				"description": "Post answers to survez questions"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
