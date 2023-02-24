@@ -1,5 +1,4 @@
-const requests = require("../requests/SurveyRequests");
-const requesHandlers = require("./RequestHandlers");
+const requestHandlers = require("./RequestHandlers");
 
 const ServerHandler = (req, res) => {
   const parsedUrl = req.url.replace("/api/v1", "");
@@ -7,22 +6,14 @@ const ServerHandler = (req, res) => {
   if (parsedUrl === "/survey") {
     console.log("GET questions");
 
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
-
-    const data = requests.getSurvey();
-
-    res.end(JSON.stringify(data));
+    requestHandlers.handleGetRequest(req, res);
   }
 
   if (parsedUrl.includes("/answers")) {
-    console.log("POST answer request");
-
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "application/json");
+    console.log("POST answers request");
 
     if (req.method === "POST") {
-      const requestBody = requesHandlers.handlePostRequest(req, res);
+      requestHandlers.handlePostRequest(req, res);
     }
   }
 };

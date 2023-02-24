@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c12667a-0dfa-4262-9f70-a338df197c57",
+		"_postman_id": "2ba950c2-cf89-45c6-ba5d-9c39cfea4157",
 		"name": "survey-api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -37,7 +37,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"data\": {\n        \"type\": \"surveyAnswers\",\n        \"id\": \"9c7160a4-e9ad-499e-92f6-07d7cdb0382c\",\n        \"attributes\": {\n            \"answers\": [\n                {\n                    \"questionId\": \"film\",\n                    \"answer\": \"Rocky Horror Picture Show\"\n                },\n                {\n                    \"questionId\": \"review\",\n                    \"answer\": 5\n                }\n            ]\n        },\n        \"relationships\": {\n            \"survey\": {\n                \"data\": {\n                    \"type\": \"surveys\",\n                    \"id\": \"2660dd24-e2db-42c1-8093-284b1df2664c\"\n                }\n            }\n        }\n    }\n}",
+					"raw": "{\n    \"data\": {\n        \"type\": \"surveyAnswers\",\n        \"id\": \"9c7160a4-e9ad-499e-92f6-07d7cdb0383e\",\n        \"attributes\": {\n            \"answers\": [\n                {\n                    \"questionId\": \"film\",\n                    \"answer\": \"Rocky Horror Picture Show\"\n                },\n                {\n                    \"questionId\": \"review\",\n                    \"answer\": 2\n                }\n            ]\n        }\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -66,6 +66,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
