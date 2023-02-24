@@ -1,9 +1,9 @@
 const Api500Error = require("../error-handlers/Api500Error");
 const Api422Error = require("../error-handlers/Api422Error");
-const mockedResponse = require("../mock-data/MockPOSTResponse");
+const collectionHandler = require("../firebase/CollectionHandler");
 
-const getSurvey = () => {
-  const data = require("../mock-data/MockQuestions");
+const getSurvey = async () => {
+  const data = await collectionHandler.getSurveys();
 
   if (data === null) {
     const errors = [
@@ -19,14 +19,27 @@ const getSurvey = () => {
   return data;
 };
 
-const submitAnswers = (data) => {
+const submitAnswers = async (payload) => {
   const errors = [];
 
-  const filmFound = data.find((item) => (item.questionId = "film"));
-  const reviewFound = data.find((item) => (item.questionId = "review"));
+  const filmFound = payload.attributes.answers.find((item) => (item.questionId = "film"));
+  const reviewFound = payload.attributes.answers.find((item) => (item.questionId = "review"));
 
   if (reviewFound && filmFound) {
-    return mockedResponse;
+    const response = await collectionHandler.saveAnswers(payload);
+
+    if (response === null) {
+      const errors = [
+        {
+          title: "Internal Server Error",
+          detail: "Something went wrong. We're working on it!",
+        },
+      ];
+
+      return new Api500Error(errors);
+    }
+
+    return response;
   }
 
   if (!filmFound) {
