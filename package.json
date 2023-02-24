@@ -1,0 +1,27 @@
+{
+  "name": "survey-backend",
+  "version": "1.0.0",
+  "description": "## Description",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apersic/survey-backend.git"
+  },
+  "keywords": [
+    "survey",
+    "api"
+  ],
+  "author": "apersic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apersic/survey-backend/issues"
+  },
+  "homepage": "https://github.com/apersic/survey-backend#readme",
+  "dependencies": {
+    "firebase": "^9.17.1"
+  }
+}
