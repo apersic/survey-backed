@@ -1,6 +1,7 @@
 const FirebaseController = require("./FirebaseController");
 const config = require("../config");
 const firestore = require("firebase/firestore");
+const dataMapper = require("../helpers/DataMapper");
 
 const controller = new FirebaseController(config.firebaseConfig);
 
@@ -12,7 +13,16 @@ const getSurveys = async () => {
         const snapshot = await firestore.getDocs(surveyCollection);
 
         snapshot.docs.forEach(document => {
-            data.push({ ...document.data(), id: document.id });
+            const mappedQuestions = dataMapper.mapObjectToArray(document.data().attributes.questions);
+            
+            data.push({
+                id: document.id,
+                type: document.data().type,
+                attributes: {
+                    ...document.data().attributes,
+                    questions: mappedQuestions
+                }
+            });
         });
 
         return data;

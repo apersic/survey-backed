@@ -1,5 +1,5 @@
 const hostname = "127.0.0.1";
-const port = 3000;
+const port = 8050;
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional

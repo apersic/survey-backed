@@ -16,7 +16,8 @@ const getSurvey = async () => {
     return new Api500Error(errors);
   }
 
-  return data;
+  // Mocked to return just the first element due to there only ever being one survey in DB as of right now.
+  return data[0];
 };
 
 const submitAnswers = async (payload) => {
