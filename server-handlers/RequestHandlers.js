@@ -5,8 +5,7 @@ const handleGetRequest = (req, res) => {
   res.setHeader("Content-Type", "application/json");
 
   requests.getSurvey().then((data) => {
-    // Mocked to return just the first element due to there only ever being one survey in DB as of right now.
-    res.end(JSON.stringify(data[0]));
+    res.end(JSON.stringify(data));
   });
 }
 
@@ -22,7 +21,7 @@ const handlePostRequest = (req, res) => {
 
   req.on("end", async () => {
     const parsedBody = JSON.parse(requestBody);
-    
+
     const response = await requests.submitAnswers(parsedBody.data);
 
     res.end(JSON.stringify(response));
