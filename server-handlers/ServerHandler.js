@@ -17,9 +17,7 @@ const ServerHandler = (req, res) => {
   if (parsedUrl.includes("/answers")) {
     console.log("POST answers request");
 
-    if (req.method === "POST") {
-      requestHandlers.handlePostRequest(req, res);
-    }
+    requestHandlers.handlePostRequest(req, res);
   }
 };
 
